@@ -1,10 +1,16 @@
 import './user-list.css';
 
-const UserList = () => {
+const UserList = (props) => {
   return (
     <div className='users'>
       <ul>
-        <li>User</li>
+        {props.userList.map((user) => {
+          return (
+            <li key={user.userId}>
+              {user.username} ({user.userAge} years old)
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

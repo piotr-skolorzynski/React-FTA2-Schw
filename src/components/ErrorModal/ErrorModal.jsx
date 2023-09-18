@@ -1,16 +1,19 @@
+import Button from '../Button/Button';
 import './error-modal.css';
 
-const ErrorModal = () => {
+const ErrorModal = ({ title, message, handleClose }) => {
   return (
-    <div className='backdrop'>
+    <div className='backdrop' onClick={handleClose}>
       <div className='modal'>
         <div className='header'>
-          <h2>Error</h2>
+          <h2>{title}</h2>
         </div>
         <div className='content'>
-          <p>error message</p>
+          <p>{message}</p>
         </div>
-        <div className='actions'>Close</div>
+        <div className='actions'>
+          <Button action={handleClose}>Okay</Button>
+        </div>
       </div>
     </div>
   );

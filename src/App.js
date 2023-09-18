@@ -1,10 +1,18 @@
-import { AddUser } from './components'
-
+import { useState } from 'react';
+import { AddUser, UserList } from './components'
 
 function App() {
+  const [userList, setUserList] = useState([])
+
+  const addUser = (user) => {
+    setUserList((prevList) => ([...prevList, user]))
+  }
+
   return (
     <>
-      <AddUser />
+      <AddUser addUser={ addUser } />
+
+      { userList.length && <UserList userList={ userList } /> }
     </>
   );
 }
